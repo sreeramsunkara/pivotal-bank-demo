@@ -1,6 +1,6 @@
 buildscript {
     ext {
-        springBootVersion = '2.0.3.RELEASE'
+        springBootVersion = '2.2.7.RELEASE'
     }
     repositories {
         mavenCentral()
@@ -29,8 +29,8 @@ repositories {
 }
 
 ext {
-    springCloudServicesVersion = '2.0.1.RELEASE'
-    springCloudVersion = 'Finchley.RELEASE'
+    springCloudServicesVersion = '2.1.2.RELEASE'
+    springCloudVersion = 'Hoxton.RELEASE'
     elasticsearchVersion = "5.6.4"
 }
 ext['elasticsearch.version'] = '5.6.4'

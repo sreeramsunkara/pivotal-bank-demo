@@ -1,12 +1,16 @@
 buildscript {
     ext {
-        springBootVersion = '2.0.3.RELEASE'
+        springBootVersion = '2.2.7.RELEASE'
     }
     repositories {
         mavenCentral()
+        maven {
+            url "https://plugins.gradle.org/m2/"
+        }
     }
     dependencies {
         classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+        classpath("io.freefair.gradle:lombok-plugin:5.0.1")
     }
 }
 
@@ -14,6 +18,7 @@ apply plugin: 'java'
 apply plugin: 'eclipse'
 apply plugin: 'org.springframework.boot'
 apply plugin: 'io.spring.dependency-management'
+apply plugin: 'io.freefair.lombok'
 
 bootJar {
     baseName = 'quotes'
@@ -29,14 +34,15 @@ repositories {
 }
 
 ext {
-    springCloudServicesVersion = '2.0.1.RELEASE'
-    springCloudVersion = 'Finchley.RELEASE'
+    springCloudServicesVersion = '2.1.2.RELEASE'
+    springCloudVersion = 'Hoxton.RELEASE'
 }
 
 dependencies {
 
     compile "org.springframework.boot:spring-boot-starter-web"
     compile "org.springframework.boot:spring-boot-starter-actuator"
+    compile "org.springframework.boot:spring-boot-starter-security"
 
     compile "org.springframework.cloud:spring-cloud-starter-zipkin"
 
@@ -56,3 +62,4 @@ dependencyManagement {
         mavenBom "org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}"
     }
 }
+

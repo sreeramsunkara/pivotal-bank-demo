@@ -1,6 +1,6 @@
 buildscript {
     ext {
-        springBootVersion = '2.0.3.RELEASE'
+        springBootVersion = '2.2.7.RELEASE'
     }
     repositories {
         mavenCentral()
@@ -29,8 +29,8 @@ repositories {
 }
 
 ext {
-	springCloudServicesVersion = '2.0.1.RELEASE'
-	springCloudVersion = 'Finchley.RELEASE'
+	springCloudServicesVersion = '2.1.2.RELEASE'
+	springCloudVersion = 'Hoxton.RELEASE'
 }
 
 dependencies {
@@ -39,7 +39,9 @@ dependencies {
     compile "org.springframework.boot:spring-boot-starter-actuator"
 	compile "org.springframework.boot:spring-boot-starter-thymeleaf"
 	compile "org.springframework.boot:spring-boot-starter-security"
-	compile "org.thymeleaf.extras:thymeleaf-extras-springsecurity4"
+//	compile "org.thymeleaf.extras:thymeleaf-extras-springsecurity4"
+
+    compile group: 'org.thymeleaf.extras', name: 'thymeleaf-extras-springsecurity4', version: '3.0.2.RELEASE'
 
     compile "org.springframework.cloud:spring-cloud-starter-zipkin"
 

@@ -6,6 +6,7 @@ import io.pivotal.quotes.domain.*;
 import io.pivotal.quotes.exception.SymbolNotFoundException;
 import lombok.extern.java.Log;
 import lombok.extern.slf4j.Slf4j;
+import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.stereotype.Service;
@@ -36,7 +37,7 @@ public class QuoteService {
 
 	public static final String FMT = "json";
 
-	/*
+     /*
          * cannot autowire as don't want ribbon here.
 	 */
 	private RestTemplate restTemplate = new RestTemplate();
