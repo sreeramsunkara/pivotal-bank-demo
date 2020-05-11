@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
-	xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 
 <head>
 	<meta name="viewport" content="width=device-width,initial-scale=1"/>
@@ -10,19 +10,19 @@
 </head>
 <body>
      
-	<div sec:authorize="hasAnyAuthority('USER')">
+	<div sec:authorize="isAuthenticated()">
 		<div th:include="fragments/navbar_fragment :: navbar" class="navbar navbar-inverse navbar-fixed-top"/>
     </div>
-	<div sec:authorize="!hasAnyAuthority('USER')">
+	<div sec:authorize="!isAuthenticated()">
 		<div th:include="fragments/navbar_fragment :: navbar-empty" class="navbar navbar-inverse navbar-fixed-top"/>
     </div>
 
 	<div class="container well well-lg">
-        <div class="col-md-6" sec:authorize="!hasAnyAuthority('USER')">
+        <div class="col-md-6" sec:authorize="!isAuthenticated()">
             <div th:include="fragments/login_fragment :: login"></div>
         </div>
 
-        <div sec:authorize="hasAnyAuthority('USER')" class="col-md-6">
+        <div sec:authorize="isAuthenticated()" class="col-md-6">
             <div th:if="${portfolio != null}" th:include="fragments/portfolio_fragment :: portfolio-summary" th:remove="tag"></div>
             <div th:if="${portfolioRetrievalError != null}" th:include="fragments/portfolio_fragment :: portfolio-error" th:remove="tag"></div>
             <div th:if="${user != null}" th:include="fragments/user_fragment :: user-stats" th:remove="tag"></div>
@@ -30,7 +30,7 @@
 
 		<div class="col-md-6">
 			<div th:include="fragments/marketsummary_fragment :: summary"></div>
-			<div sec:authorize="hasAnyAuthority('USER')" th:if="${accounts != null}" th:include="fragments/accounts_fragment :: accounts-summary" th:remove="tag"></div>
+			<div sec:authorize="isAuthenticated()" th:if="${accounts != null}" th:include="fragments/accounts_fragment :: accounts-summary" th:remove="tag"></div>
 		</div>
     </div>
     <div th:include="fragments/quote_attribution_fragment :: quote_attribution"></div>

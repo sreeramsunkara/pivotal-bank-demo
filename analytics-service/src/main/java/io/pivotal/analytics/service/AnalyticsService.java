@@ -27,7 +27,7 @@ public class AnalyticsService {
 	public List<Trade> getTrades(String symbol) {
 
 		logger.debug("Getting trades for symbol: " + symbol);
-		List<Trade> trades = repository.findBySymbolOrderByCompletiondateDesc(symbol, new PageRequest(0, 20)).getContent();
+		List<Trade> trades = repository.findBySymbolOrderByCompletiondateDesc(symbol, PageRequest.of(0, 20)).getContent();
 		return trades;
 
 	}

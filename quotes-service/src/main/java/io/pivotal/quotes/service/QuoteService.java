@@ -12,6 +12,7 @@ import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
+
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -91,17 +92,17 @@ public class QuoteService {
 	 *            The search parameter for company name or symbol.
 	 * @return The list of company information.
 	 */
-	@HystrixCommand(fallbackMethod = "getCompanyInfoFallback",
-		    commandProperties = {
-		      @HystrixProperty(name="execution.timeout.enabled", value="false")
-		    })
+//	@HystrixCommand(fallbackMethod = "getCompanyInfoFallback",
+//		    commandProperties = {
+//		      @HystrixProperty(name="execution.timeout.enabled", value="false")
+//		    })
 	public List<CompanyInfo> getCompanyInfo(String name) {
 		log.debug("QuoteService.getCompanyInfo: retrieving info for: "
 				+ name);
 		Map<String, String> params = new HashMap<String, String>();
-		params.put("name", name);
-		CompanyInfo[] companies = restTemplate.getForObject(company_url,
-				CompanyInfo[].class, params);
+		params.put("symbol", name);
+		CompanyInfo[] companies = new CompanyInfo[]{restTemplate.getForObject(company_url,
+				CompanyInfo.class, params)};
 		log.debug("QuoteService.getCompanyInfo: retrieved info: "
 				+ companies);
 		return Arrays.asList(companies);

@@ -41,6 +41,7 @@ dependencies {
 	compile "org.springframework.boot:spring-boot-starter-web"
 	compile "org.springframework.boot:spring-boot-starter-actuator"
 	compile "org.springframework.boot:spring-boot-starter-data-elasticsearch"
+    compile "org.springframework.boot:spring-boot-starter-security"
 
     compile("org.elasticsearch.client:transport:${elasticsearchVersion}") {
         exclude group: "commons-logging", module: "commons-logging"

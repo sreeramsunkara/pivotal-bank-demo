@@ -49,7 +49,7 @@ public class MarketSummaryService {
 		return summary;
 	}
 	
-	@Scheduled(fixedRateString = refresh_period)
+	@Scheduled(fixedDelay = 6000000, initialDelay = 60000)
 	protected void retrieveMarketSummary() {
 		logger.debug("Scheduled retrieval of Market Summary");
 		/*

@@ -16,11 +16,11 @@ public class CompanyInfo {
 	"Exchange":"NASDAQ"
     }
  */
-	@JsonProperty("Symbol")
+	@JsonProperty("symbol")
 	private String symbol;
-	@JsonProperty("Name")
+	@JsonProperty("companyName")
 	private String name;
-	@JsonProperty("Exchange")
+	@JsonProperty("exchange")
 	private String exchange;
 	
 	public String getSymbol() {
