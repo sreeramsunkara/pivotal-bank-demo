@@ -10,7 +10,7 @@
 source ./commons.sh
 
 checkEnvHasSCS(){
-  DiscovInstalled=`cf marketplace | grep p-service-registry`
+  DiscovInstalled=`cf marketplace | grep p.service-registry`
   if [[ -z $DiscovInstalled ]]
   then
     echo "The targeted PCF environment does not have Service Discovery in the marketplace, installation will now halt."
@@ -27,7 +27,7 @@ create_single_service()
   if [ $EXISTS -eq 0 ]
   then
     echo "About to create: $line"
-    if [[ $line == *"p-config-server"*  &&  ! -z "$GITHUB_URI" ]]
+    if [[ $line == *"p.config-server"*  &&  ! -z "$GITHUB_URI" ]]
     then
       #Annoying hack because of quotes, single quotes etc ....
       GIT=`printf '{"git":{"uri":"%s","searchPaths":"%s","label":"%s"}}\n' "${GITHUB_URI}" ${GITHUB_SEARCHPATHS} ${GITHUB_BRANCH}`

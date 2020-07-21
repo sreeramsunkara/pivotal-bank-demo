@@ -24,7 +24,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
-import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
+//import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 
 
 @Service
@@ -55,7 +55,7 @@ public class PortfolioService {
 		return result.getBody();
 	}
 	
-	@HystrixCommand(fallbackMethod = "getPortfolioFallback")
+//	@HystrixCommand(fallbackMethod = "getPortfolioFallback")
 	public Portfolio getPortfolio(String user) {
 		Portfolio folio = restTemplate.getForObject(downstreamProtocol + "://" + portfolioService + "/portfolio/{accountid}", Portfolio.class, user);
 		logger.debug("Portfolio received: " + folio);

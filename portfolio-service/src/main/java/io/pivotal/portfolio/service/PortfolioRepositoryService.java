@@ -3,7 +3,7 @@ package io.pivotal.portfolio.service;
 import brave.ScopedSpan;
 import brave.Span;
 import brave.Tracer;
-import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
+//import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import io.pivotal.portfolio.domain.Order;
 import io.pivotal.portfolio.repository.OrderRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,10 +23,10 @@ public class PortfolioRepositoryService {
         this.repository = repository;
     }
 
-    @HystrixCommand(
-            commandKey = "portfolio-service.getOrderFromDB",
-            groupKey = "portfolio-service.getOrderFromDB",
-            threadPoolKey = "portfolio-service.getOrderFromDB")
+//    @HystrixCommand(
+//            commandKey = "portfolio-service.getOrderFromDB",
+//            groupKey = "portfolio-service.getOrderFromDB",
+//            threadPoolKey = "portfolio-service.getOrderFromDB")
     List<Order> getOrders(String userId) {
 
         Span newSpan = this.tracer.nextSpan().name("retrieveUserId");

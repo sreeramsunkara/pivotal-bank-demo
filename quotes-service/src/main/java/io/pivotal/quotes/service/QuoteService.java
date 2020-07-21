@@ -1,7 +1,7 @@
 package io.pivotal.quotes.service;
 
-import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
-import com.netflix.hystrix.contrib.javanica.annotation.HystrixProperty;
+//import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
+//import com.netflix.hystrix.contrib.javanica.annotation.HystrixProperty;
 import io.pivotal.quotes.domain.*;
 import io.pivotal.quotes.exception.SymbolNotFoundException;
 import lombok.extern.java.Log;
@@ -51,7 +51,7 @@ public class QuoteService {
 	 * @return The quote object or null if not found.
 	 * @throws SymbolNotFoundException
 	 */
-	@HystrixCommand(fallbackMethod = "getQuoteFallback")
+//	@HystrixCommand(fallbackMethod = "getQuoteFallback")
 	public Quote getQuote(String symbol) throws SymbolNotFoundException {
 
 		log.debug("QuoteService.getQuote: retrieving quote for: " + symbol);

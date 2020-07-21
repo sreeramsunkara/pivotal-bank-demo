@@ -16,7 +16,7 @@ import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
-import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
+//import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 
 /**
  * Retrieves quotes from the quote service. Uses hystrix to manage failure.
@@ -47,7 +47,7 @@ public class QuoteRemoteCallService {
 	 *            the symbol of the quote to fetch.
 	 * @return The quote
 	 */
-	@HystrixCommand(fallbackMethod = "getQuoteFallback")
+//	@HystrixCommand(fallbackMethod = "getQuoteFallback")
 	public Quote getQuote(String symbol) {
 		logger.debug("Fetching quote: " + symbol);
 		Quote quote = restTemplate.getForObject(downstreamProtocol + "://" + quotesService + "/quote/{symbol}", Quote.class, symbol);

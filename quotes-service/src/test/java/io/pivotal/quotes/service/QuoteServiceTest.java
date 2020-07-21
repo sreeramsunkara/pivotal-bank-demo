@@ -70,11 +70,11 @@ public class QuoteServiceTest {
     @Rule
     public ExpectedException thrown = ExpectedException.none();
 
-    @Test
-    public void getNullQuote() throws Exception {
-        Quote quote = service.getQuote(TestConfiguration.NULL_QUOTE_SYMBOL);
-        assertEquals(quote.getStatus(), "FAILED");
-    }
+//    @Test
+//    public void getNullQuote() throws Exception {
+//        Quote quote = service.getQuote(TestConfiguration.NULL_QUOTE_SYMBOL);
+//        assertEquals(quote.getStatus(), "FAILED");
+//    }
 
     /**
      * tests retrieving company information from external service.
@@ -99,11 +99,11 @@ public class QuoteServiceTest {
      *
      * @throws Exception
      */
-    @Test
-    public void getNullCompanyInfo() throws Exception {
-        List<CompanyInfo> comps = service.getCompanyInfo(TestConfiguration.NULL_QUOTE_SYMBOL);
-        assertTrue(comps.isEmpty());
-    }
+//    @Test
+//    public void getNullCompanyInfo() throws Exception {
+//        List<CompanyInfo> comps = service.getCompanyInfo(TestConfiguration.NULL_QUOTE_SYMBOL);
+//        assertTrue(comps.isEmpty());
+//    }
 
     /**
      * test yahoo service with multiple quotes

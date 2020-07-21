@@ -24,7 +24,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
-import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
+//import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 
 
 @Service
@@ -42,7 +42,7 @@ public class QuotesService {
 	@Value("${pivotal.quotesService.name}")
 	private String quotesService;
 	
-	@HystrixCommand(fallbackMethod = "getQuoteFallback")
+//	@HystrixCommand(fallbackMethod = "getQuoteFallback")
 	public Quote getQuote(String symbol) {
 		logger.debug("Fetching quote: " + symbol);
 		List<Quote> quotes = getMultipleQuotes(symbol);
@@ -61,7 +61,7 @@ public class QuotesService {
 		quote.setStatus("FAILED");
 		return quote;
 	}
-	@HystrixCommand(fallbackMethod = "getCompaniesFallback")
+//	@HystrixCommand(fallbackMethod = "getCompaniesFallback")
 	public List<CompanyInfo> getCompanies(String name) {
 		logger.debug("Fetching companies with name or symbol matching: " + name);
 		CompanyInfo[] infos = restTemplate.getForObject(downstreamProtocol + "://" + quotesService + "/v1/company/{name}", CompanyInfo[].class, name);

@@ -1,6 +1,6 @@
 package io.pivotal.web.service;
 
-import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
+//import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import io.pivotal.web.domain.Quote;
 import io.pivotal.web.domain.Trade;
 import org.slf4j.Logger;
@@ -31,7 +31,7 @@ public class AnalyticsService {
 	@Value("${pivotal.analyticsService.name}")
 	private String analyticsService;
 	
-	@HystrixCommand(fallbackMethod = "getAnalyticsFallback")
+//	@HystrixCommand(fallbackMethod = "getAnalyticsFallback")
 	public List<Trade> getTrades(String symbol) {
 		logger.debug("Fetching trades: " + symbol);
 		Trade[] tradesArr = restTemplate.getForObject(downstreamProtocol + "://" + analyticsService + "/analytics/trades/{symbol}", Trade[].class, symbol);

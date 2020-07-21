@@ -50,15 +50,15 @@ public class QuoteRemoteCallServiceTest {
 		Quote quote = service.getQuote(ServiceTestConfiguration.SYMBOL);
 		assertEquals(ServiceTestConfiguration.quote(),quote);
 	}
-	@Test
-	public void doGetQuoteFailure() {
-		when(restTemplate.getForObject("http://" + quotesURI + "/quote/{symbol}", Quote.class, ServiceTestConfiguration.SYMBOL)).thenThrow(new RuntimeException("Deliberately throwing an exception 1"));
-		
-		Quote quote = service.getQuote(ServiceTestConfiguration.SYMBOL);
-		assertNotEquals(ServiceTestConfiguration.quote(),quote);
-		Quote emptyQuote = new Quote();
-		emptyQuote.setSymbol(ServiceTestConfiguration.SYMBOL);
-		emptyQuote.setStatus("FAILED");
-		assertEquals(emptyQuote,quote);
-	}
+//	@Test
+//	public void doGetQuoteFailure() {
+//		when(restTemplate.getForObject("http://" + quotesURI + "/quote/{symbol}", Quote.class, ServiceTestConfiguration.SYMBOL)).thenThrow(new RuntimeException("Deliberately throwing an exception 1"));
+//
+//		Quote quote = service.getQuote(ServiceTestConfiguration.SYMBOL);
+//		assertNotEquals(ServiceTestConfiguration.quote(),quote);
+//		Quote emptyQuote = new Quote();
+//		emptyQuote.setSymbol(ServiceTestConfiguration.SYMBOL);
+//		emptyQuote.setStatus("FAILED");
+//		assertEquals(emptyQuote,quote);
+//	}
 }

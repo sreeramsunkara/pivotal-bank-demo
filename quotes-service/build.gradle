@@ -44,13 +44,13 @@ dependencies {
     compile "org.springframework.boot:spring-boot-starter-actuator"
     compile "org.springframework.boot:spring-boot-starter-security"
 
-    compile "org.springframework.cloud:spring-cloud-starter-zipkin"
+//    compile "org.springframework.cloud:spring-cloud-starter-zipkin"
 
     compileOnly "org.projectlombok:lombok"
 
     compile "io.pivotal.spring.cloud:spring-cloud-services-starter-config-client"
     compile "io.pivotal.spring.cloud:spring-cloud-services-starter-service-registry"
-    compile "io.pivotal.spring.cloud:spring-cloud-services-starter-circuit-breaker"
+//    compile "io.pivotal.spring.cloud:spring-cloud-services-starter-circuit-breaker"
 
     testCompile "org.springframework.boot:spring-boot-starter-test"
 
@@ -63,3 +63,15 @@ dependencyManagement {
     }
 }
 
+test {
+    testLogging {
+        events "passed", "skipped", "failed" //, "standardOut", "standardError"
+
+        showExceptions true
+        exceptionFormat "full"
+        showCauses true
+        showStackTraces true
+
+        showStandardStreams = false
+    }
+}

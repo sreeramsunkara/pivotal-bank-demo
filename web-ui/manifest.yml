@@ -2,7 +2,7 @@
 applications:
 - name: web
   path: build/libs/web.jar
-  services: [ discovery-service, circuit-breaker-dashboard, config-server ]
+  services: [ discovery-service, config-server ]
   timeout: 180
   instances: 1
   memory: 1G
